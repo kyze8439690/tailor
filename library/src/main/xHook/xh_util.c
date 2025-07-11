@@ -37,8 +37,9 @@
 #include "xh_errno.h"
 #include "xh_log.h"
 
+#define PAGE_MASK        (~(getpagesize() - 1))
 #define PAGE_START(addr) ((addr) & PAGE_MASK)
-#define PAGE_END(addr)   (PAGE_START(addr + sizeof(uintptr_t) - 1) + PAGE_SIZE)
+#define PAGE_END(addr)   (PAGE_START(addr + sizeof(uintptr_t) - 1) + getpagesize())
 #define PAGE_COVER(addr) (PAGE_END(addr) - PAGE_START(addr))
 
 int xh_util_get_mem_protect(uintptr_t addr, size_t len, const char *pathname, unsigned int *prot)

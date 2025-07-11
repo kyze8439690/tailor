@@ -17,7 +17,8 @@
 package com.bytedance.tailor;
 
 import android.os.Debug;
-import android.support.annotation.Keep;
+
+import androidx.annotation.Keep;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;
